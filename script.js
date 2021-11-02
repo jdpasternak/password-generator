@@ -131,6 +131,23 @@ var getPasswordCriteria = function () {
   return passwordCriteria;
 };
 
+// TODO: Create validatePassword function to validate the generated password
+var validatePassword = function (passwordText, passwordCriteria) {
+  //  for each criterion
+  for (var i = 0; i < passwordCriteria.length; i++) {
+    //    if password contains some character from criterion
+    if (passwordText.split("").some((c) => characterArray.indexOf(c) >= 0)) {
+      //      return true
+      return true;
+      //    else
+    } else {
+      //      return false
+      //      re-generate password
+      return false;
+    }
+  }
+};
+
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
 
