@@ -1,52 +1,52 @@
 // Assignment code here
+/* Decimal representations of possible password characters 
+      ALL possible characers: 32 - 126
+        Lowercase Alphabet: 97 - 122
+        Uppercase Alphabet: 65 - 90
+        Numbers: 48 - 57
+        Special Characters: 32 - 47, 58 - 64, 91 - 96, 123 - 126 */
+var specialCharacters = [
+  " ",
+  "!",
+  '"',
+  "#",
+  "$",
+  "%",
+  "&",
+  "'",
+  "(",
+  ")",
+  "*",
+  "+",
+  ",",
+  "-",
+  ".",
+  "/",
+  ":",
+  ";",
+  "<",
+  "=",
+  ">",
+  "?",
+  "@",
+  "[",
+  "\\",
+  "]",
+  "^",
+  "_",
+  "`",
+  "{",
+  "|",
+  "}",
+  "~",
+];
+
 var generatePassword = function () {
   // Get password length
   var passwordLength = getPasswordLength();
 
   // Get password Criteria
   var passwordCriteria = getPasswordCriteria();
-
-  /* Decimal representations of possible password characters 
-      ALL possible characers: 32 - 126
-        Lowercase Alphabet: 97 - 122
-        Uppercase Alphabet: 65 - 90
-        Numbers: 48 - 57
-        Special Characters: 32 - 47, 58 - 64, 91 - 96, 123 - 126 */
-  var specialCharacters = [
-    " ",
-    "!",
-    '"',
-    "#",
-    "$",
-    "%",
-    "&",
-    "'",
-    "(",
-    ")",
-    "*",
-    "+",
-    ",",
-    "-",
-    ".",
-    "/",
-    ":",
-    ";",
-    "<",
-    "=",
-    ">",
-    "?",
-    "@",
-    "[",
-    "\\",
-    "]",
-    "^",
-    "_",
-    "`",
-    "{",
-    "|",
-    "}",
-    "~",
-  ];
 
   // Randomly select a type from one of the chosen criteria, then randomly select a character from that type
   var passwordText = "";
@@ -102,31 +102,50 @@ var getPasswordLength = function () {
 };
 
 var getPasswordCriteria = function () {
+  var criteriaInputEls = document.querySelectorAll("[data-spec]");
+  var passwordCriteria = {};
+  criteriaInputEls.forEach((i) => {
+    if (i.classList.contains("toggle-selected")) {
+      passwordCriteria[i.dataset.spec] = true;
+    } else {
+      passwordCriteria.length = parseInt(i.value);
+    }
+  });
+
+  if (
+    !passwordCriteria.length ||
+    passwordCriteria.length < 8 ||
+    passwordCriteria.length > 128
+  ) {
+    // Display error
+    return false;
+  }
+
   // Confirm with user each of the desired criteria
-  var hasLowercase = confirm("Include lowercase letters?");
-  var hasUppercase = confirm("Include uppercase letters?");
-  var hasNumbers = confirm("Include numbers?");
-  var hasSpecial = confirm("Include special characters?");
+  // var hasLowercase = confirm("Include lowercase letters?");
+  // var hasUppercase = confirm("Include uppercase letters?");
+  // var hasNumbers = confirm("Include numbers?");
+  // var hasSpecial = confirm("Include special characters?");
 
   // Make a list with a number for each criteria select (ex: 1,2,4 for lower, upper, and special)
-  var passwordCriteria = [];
-  if (hasLowercase) {
-    passwordCriteria.push(0);
-  }
-  if (hasUppercase) {
-    passwordCriteria.push(1);
-  }
-  if (hasNumbers) {
-    passwordCriteria.push(2);
-  }
-  if (hasSpecial) {
-    passwordCriteria.push(3);
-  }
-  // If no criteria are selected, re-run the function
-  if (passwordCriteria.length === 0) {
-    alert("ERROR: You must select at least 1 of the criteria.");
-    return getPasswordCriteria();
-  }
+  // var passwordCriteria = [];
+  // if (hasLowercase) {
+  //   passwordCriteria.push(0);
+  // }
+  // if (hasUppercase) {
+  //   passwordCriteria.push(1);
+  // }
+  // if (hasNumbers) {
+  //   passwordCriteria.push(2);
+  // }
+  // if (hasSpecial) {
+  //   passwordCriteria.push(3);
+  // }
+  // // If no criteria are selected, re-run the function
+  // if (passwordCriteria.length === 0) {
+  //   alert("ERROR: You must select at least 1 of the criteria.");
+  //   return getPasswordCriteria();
+  // }
 
   return passwordCriteria;
 };
