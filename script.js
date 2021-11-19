@@ -144,3 +144,9 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
+
+document.querySelector(".card-footer").addEventListener("click", (evt) => {
+  if (evt.target.matches("span")) {
+    evt.target.classList.toggle("toggle-selected");
+  }
+});
