@@ -59,8 +59,6 @@ var generatePassword = function () {
   var passwordText = "";
   var selection = 0;
   for (i = 0; i < passwordLength; i++) {
-    // debugger;
-
     // Keep running this switch statement until randomly landing on one of the selected criteria
     var selected = false;
     while (!selected) {
@@ -106,16 +104,7 @@ var getPasswordLength = function () {
 };
 
 var getPasswordCriteria = function () {
-  // Confirm with user each of the desired criteria
-  /*  
-  var hasLowercase = confirm("Include lowercase letters?");
-  var hasUppercase = confirm("Include uppercase letters?");
-  var hasNumbers = confirm("Include numbers?");
-  var hasSpecial = confirm("Include special characters?"); 
-  */
-
   // Make a list with a number for each criteria select (ex: 1,2,4 for lower, upper, and special)
-
   var passwordCriteria = [];
   if ($(`input[name="lowercase"]`).prop("checked")) {
     passwordCriteria.push(0);
@@ -129,12 +118,6 @@ var getPasswordCriteria = function () {
   if ($(`input[name="characters"]`).prop("checked")) {
     passwordCriteria.push(3);
   }
-
-  // If no criteria are selected, re-run the function
-  /* if (passwordCriteria.length === 0) {
-    $(".modal").modal("open");
-    return;
-  } */
 
   return passwordCriteria;
 };
