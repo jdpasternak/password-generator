@@ -21,51 +21,64 @@
         <div class="card-content">
           <h2 class="center-align">Generate a Password</h2>
           <div class="row">
+            <!-- Textarea to hold generated password -->
             <textarea
+              class="materialize-textarea center-align"
               readonly
               id="password"
               placeholder="Your Secure Password"
               aria-label="Generated Password"
             ></textarea>
             <!-- Password Length Range Input -->
-            <p class="range-field">
-              <label
-                >Password Length
-                <input type="range" id="length" min="8" max="128"
-              /></label>
-            </p>
-            <div class="switch">
-              <label>
-                <input name="lowercase" type="checkbox" />
-                <span class="lever"></span>
-                Lowercase
-              </label>
-            </div>
-            <div class="switch">
-              <label>
-                <input name="uppercase" type="checkbox" />
-                <span class="lever"></span>
-                Uppercase
-              </label>
-            </div>
-            <div class="switch">
-              <label>
-                <input name="numbers" type="checkbox" />
-                <span class="lever"></span>
-                Numbers
-              </label>
-            </div>
-            <div class="switch">
-              <label>
-                <input name="characters" type="checkbox" />
-                <span class="lever"></span>
-                Special Characters
-              </label>
+            <div class="row">
+              <p class="range-field">
+                <label
+                  >Password Length
+                  <input type="range" id="length" min="8" max="128"
+                /></label>
+              </p>
             </div>
 
-            <button id="generate" class="waves-effect waves-light btn">
-              Generate Password
-            </button>
+            <!-- Criteria Selection -->
+            <div class="row">
+              <div class="switch col m3">
+                <label>
+                  <input name="lowercase" type="checkbox" />
+                  <span class="lever"></span>
+                  Lowercase
+                </label>
+              </div>
+              <div class="switch col m3">
+                <label>
+                  <input name="uppercase" type="checkbox" />
+                  <span class="lever"></span>
+                  Uppercase
+                </label>
+              </div>
+              <div class="switch col m3">
+                <label>
+                  <input name="numbers" type="checkbox" />
+                  <span class="lever"></span>
+                  Numbers
+                </label>
+              </div>
+              <div class="switch col m3">
+                <label>
+                  <input name="characters" type="checkbox" />
+                  <span class="lever"></span>
+                  Special Characters
+                </label>
+              </div>
+            </div>
+
+            <!-- Generate Button -->
+            <div class="row">
+              <div class="col s12 center">
+                <button id="generate" class="waves-effect waves-light btn">
+                  Generate Password
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
