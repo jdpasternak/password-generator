@@ -134,7 +134,7 @@ var getPasswordCriteria = function () {
 };
 
 // Get references to the #generate element
-var generateBtn = document.querySelector("#generate");
+var generateBtn = $("#generate");
 
 // Write password to the #password input
 function writePassword() {
@@ -142,13 +142,13 @@ function writePassword() {
   if (!password) {
     return false;
   }
-  var passwordText = document.querySelector("#password");
+  var passwordText = $("#password");
 
-  passwordText.value = password;
+  passwordText.val(password);
 }
 
 // Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
+generateBtn.on("click", writePassword);
 
 /* New Feature with Form Inputs */
 /* 
