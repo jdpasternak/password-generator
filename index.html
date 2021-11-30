@@ -6,6 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Password Generator</title>
     <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
     />
@@ -22,13 +26,16 @@
           <h2 class="center-align">Generate a Password</h2>
           <div class="row">
             <!-- Textarea to hold generated password -->
-            <textarea
-              class="materialize-textarea center-align"
-              readonly
-              id="password"
-              placeholder="Your Secure Password"
-              aria-label="Generated Password"
-            ></textarea>
+            <div class="input-field">
+              <textarea
+                class="materialize-textarea center-align"
+                readonly
+                id="password"
+                placeholder="Your Secure Password"
+                aria-label="Generated Password"
+              ></textarea>
+            </div>
+
             <!-- Password Length Range Input -->
             <div class="row">
               <p class="range-field">

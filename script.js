@@ -93,6 +93,12 @@ var generatePassword = function () {
   return passwordText;
 };
 
+var copyPassword = function () {
+  $("#password").focus().select();
+  document.execCommand("copy");
+  M.toast({ html: "Copied to clipboard", displayLength: 2000 });
+};
+
 var getPasswordLength = function () {
   var passwordLength = $(`input[name="length"]`).val();
 
@@ -143,6 +149,15 @@ function writePassword() {
     return false;
   }
   var passwordText = $("#password");
+  var copyBtn = $("<i></i>")
+    .addClass("material-icons prefix tooltipped")
+    .text("content_copy")
+    .attr("data-position", "top")
+    .attr("data-tooltip", "Copy to clipboard")
+    .on("click", copyPassword);
+
+  $(".input-field").prepend(copyBtn);
+  $(".tooltipped").tooltip();
 
   passwordText.val(password);
 }
