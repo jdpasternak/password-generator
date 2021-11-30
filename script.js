@@ -1,10 +1,17 @@
-// Assignment code here
+$(document).ready(function () {
+  $(".modal").modal();
+});
+
 var generatePassword = function () {
   // Get password length
-  var passwordLength = getPasswordLength();
+  var passwordLength = parseInt(getPasswordLength());
 
   // Get password Criteria
   var passwordCriteria = getPasswordCriteria();
+  if (passwordCriteria.length === 0) {
+    $(".modal").modal("open");
+    return false;
+  }
 
   /* Decimal representations of possible password characters 
       ALL possible characers: 32 - 126
@@ -118,10 +125,10 @@ var getPasswordCriteria = function () {
   }
 
   // If no criteria are selected, re-run the function
-  if (passwordCriteria.length === 0) {
-    alert("ERROR: You must select at least 1 of the criteria.");
+  /* if (passwordCriteria.length === 0) {
+    $(".modal").modal("open");
     return;
-  }
+  } */
 
   return passwordCriteria;
 };
@@ -132,6 +139,9 @@ var generateBtn = document.querySelector("#generate");
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
+  if (!password) {
+    return false;
+  }
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
