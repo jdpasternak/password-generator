@@ -17,7 +17,7 @@ This was a project done for a coding bootcamp that covered the following skills:
 
 ## Screenshot
 
-![A screenshot of the Password Generator app](./assets/images/screenshot.PNG)
+![A screenshot of the Password Generator app](./assets/images/screenshot.png)
 
 ## Live Site
 
