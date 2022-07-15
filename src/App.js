@@ -27,7 +27,7 @@ function App() {
     hasSpecialCharacters: true,
     passwordLength: 20,
   });
-  const [generatedPassword, setGeneratedPassword] = useState("tomatoes");
+  const [generatedPassword, setGeneratedPassword] = useState("");
   const [open, setOpen] = useState(false);
   const [message, setMessage] = useState("");
 
